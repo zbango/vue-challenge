@@ -5,67 +5,39 @@
         <div class="form-group">
           <label for="customer-type">Tipo de cliente:</label>
           <div class="radio-group">
-            <input type="radio" id="regular" value="regular" v-model="customerType" />
+            <input type="radio" id="regular" value="regular" v-model="hotelStore.customerType" />
             <label for="regular">Regular</label>
-            <input type="radio" id="rewards" value="rewards" v-model="customerType" />
+            <input type="radio" id="rewards" value="rewards" v-model="hotelStore.customerType" />
             <label for="rewards">Rewards</label>
           </div>
         </div>
 
         <div class="form-group">
           <label for="dates">Fechas:</label>
-          <div v-for="(date, index) in dates" :key="index" class="date-input">
+          <div v-for="(date, index) in hotelStore.dates" :key="index" class="date-input">
             <input
               type="date"
               :value="date"
-              @input="updateDate($event.target.value, index)"
+              @input="hotelStore.updateDate($event.target.value, index)"
               placeholder="Ingrese una fecha"
             />
-            <button @click="removeDate(index)" class="remove-date-btn">Eliminar</button>
+            <button @click="hotelStore.removeDate(index)" class="remove-date-btn">Eliminar</button>
           </div>
-          <button @click="addDate" class="add-date-btn">Agregar Fecha</button>
+          <button @click="hotelStore.addDate" class="add-date-btn">Agregar Fecha</button>
         </div>
 
         <div class="form-group">
-          <button @click="submitForm">Enviar</button>
+          <button @click="hotelStore.calculateCheapestHotel()">Buscar opción más económica</button>
         </div>
       </div>
     </div>
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      customerType: 'regular',
-      dates: ['']
-    }
-  },
-  methods: {
-    submitForm() {
-      //TODO: Implement function
-    },
-    addDate() {
-      this.dates.push('')
-    },
-    removeDate(index) {
-      this.dates.splice(index, 1)
-    },
-    updateDate(value, index) {
-      this.dates[index] = value
-    }
-  }
-}
+<script setup lang="ts">
+import { useHotelStore } from '../stores/hotels'
 
-function getCurrentDate() {
-  const currentDate = new Date()
-  const day = currentDate.getDate().toString().padStart(2, '0')
-  const month = (currentDate.getMonth() + 1).toString().padStart(2, '0')
-  const year = currentDate.getFullYear().toString()
-
-  return `${day}/${month}/${year}`
-}
+const hotelStore = useHotelStore()
 </script>
 
 <style scoped>
