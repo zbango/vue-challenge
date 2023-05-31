@@ -1,15 +1,18 @@
 <template>
-  <div class="about">
-    <h1>Frontend challenge</h1>
-  </div>
+  <main class="container">
+    <h1>Frontend challenge developed by Steven Tabango</h1>
+  </main>
 </template>
 
 <style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+h1 {
+  text-align: center;
 }
 </style>

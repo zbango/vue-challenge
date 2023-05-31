@@ -1,5 +1,5 @@
 <template>
-  <div class="hotel-grid">
+  <div class="hotel-grid" id="hotel-grid">
     <HotelCard v-for="hotel in hotelStore.hotels" :key="hotel.id" :hotel="hotel" />
   </div>
 </template>
@@ -13,6 +13,7 @@ const hotelStore = useHotelStore()
 
 <style scoped>
 .hotel-grid {
+  margin-top: 30px;
   display: flex;
   justify-content: center;
   gap: 20px;

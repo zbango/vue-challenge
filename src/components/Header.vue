@@ -7,7 +7,7 @@
 
     <div class="right-content">
       <router-link to="/" class="link">Inicio</router-link>
-      <router-link to="/about" class="link">Ayuda</router-link>
+      <router-link to="/about" class="link">Acerca</router-link>
     </div>
   </header>
 </template>
@@ -46,6 +46,7 @@
   color: #fff;
   text-decoration: none;
   margin-left: 12px;
+  margin-right: 12px;
   font-size: large;
 }
 

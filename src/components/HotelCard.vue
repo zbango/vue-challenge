@@ -36,7 +36,7 @@ export default {
 @media (max-width: 768px) {
   .hotel-card {
     width: 100%;
-    margin: 20px;
+    margin: 10px 20px;
   }
 }
 
@@ -55,13 +55,13 @@ export default {
 }
 
 .cheaper-hotel {
-  border: 2px solid #0048ff;
+  border: 4px solid #003b95;
   animation: pulse-border 0.5s infinite alternate;
 }
 
 @keyframes pulse-border {
   from {
-    border-color: #0048ff;
+    border-color: #003b95;
   }
   to {
     border-color: transparent;
