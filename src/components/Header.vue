@@ -2,21 +2,19 @@
   <header class="header">
     <div class="left-content">
       <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="48" height="48" />
-      <div class="header-text">
-        tipti-vue-challenge
-      </div>
+      <div class="header-text">tipti-vue-challenge</div>
     </div>
 
     <div class="right-content">
-    <router-link to="/" class="link">Inicio</router-link>
-    <router-link to="/about" class="link">Ayuda</router-link>
-  </div>
+      <router-link to="/" class="link">Inicio</router-link>
+      <router-link to="/about" class="link">Ayuda</router-link>
+    </div>
   </header>
 </template>
 
 <style scoped>
 .header {
-  background-color: #003B95;
+  background-color: #003b95;
   padding: 15px;
   width: 100%;
   box-sizing: border-box;
