@@ -7,6 +7,7 @@ interface State {
   hotels: IHotel[]
   customerType: string
   dates: string[]
+  error: string
 }
 
 export const useHotelStore = defineStore('hotel', {
@@ -56,11 +57,19 @@ export const useHotelStore = defineStore('hotel', {
       }
     ],
     customerType: ClientTypeEnum.REGULAR,
-    dates: ['']
+    dates: [''],
+    error: ''
   }),
 
   actions: {
     calculateCheapestHotel() {
+      this.error = ''
+      const hasInvalidDates = this.dates.some((date: string) => isNaN(Date.parse(date)))
+      if (hasInvalidDates) {
+        this.error = 'Ingrese fechas válidas (no vacías)'
+        return
+      }
+
       const hotelCosts: IHotelCost[] = this.hotels.map((hotel: IHotel) => {
         const weekdayRate =
           this.customerType === ClientTypeEnum.REGULAR
